@@ -2,7 +2,7 @@
     {
         "id": "7d41fa9babc2426c",
         "type": "tab",
-        "label": "Sensor",
+        "label": "Sensors",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,10 +18,255 @@
     {
         "id": "9aba91fcaaf6a811",
         "type": "tab",
-        "label": "Pump",
+        "label": "Pumps",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "fc276753b96611d0",
+        "type": "subflow",
+        "name": "Sensor",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 600,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "97491f42da5df10c",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 600,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "2b0a4d22fbfd2566",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 600,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "af9865a7ef86ebb3",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "id",
+                "type": "num",
+                "value": "1",
+                "ui": {
+                    "type": "spinner",
+                    "opts": {
+                        "min": 1
+                    }
+                }
+            },
+            {
+                "name": "qos",
+                "type": "num",
+                "value": "2",
+                "ui": {
+                    "type": "spinner",
+                    "opts": {
+                        "min": 0,
+                        "max": 2
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "outputLabels": [
+            "soil moisture",
+            "temperature",
+            "humidity"
+        ]
+    },
+    {
+        "id": "083a8950d27dee38",
+        "type": "subflow",
+        "name": "Pump",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 580,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "88057f57f4698a90",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 880,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "919aa2c72bbc247a",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "id",
+                "type": "num",
+                "value": "1",
+                "ui": {
+                    "type": "spinner",
+                    "opts": {
+                        "min": 1
+                    }
+                }
+            },
+            {
+                "name": "qos",
+                "type": "num",
+                "value": "2",
+                "ui": {
+                    "type": "spinner",
+                    "opts": {
+                        "min": 0,
+                        "max": 2
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "5ef3f25867c84c30",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "name": "Set moisture threshold",
+        "style": {
+            "label": true,
+            "stroke": "#92d04f",
+            "fill": "#c8e7a7",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "4284465a6bc7b79e",
+            "d70bba95a0e931b9"
+        ],
+        "x": 94,
+        "y": 39,
+        "w": 532,
+        "h": 82
+    },
+    {
+        "id": "61a51d061c408148",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "name": "Check moisture threshold and branch depending on value",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "label": true,
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "6eb819947210a780",
+            "779af778951262f2",
+            "a635d62cdecc63bc",
+            "bbff58125f4bc761",
+            "0fb850b5d35f2f00",
+            "393ebd3b41b28f82",
+            "6b0531c3a695f0f2"
+        ],
+        "x": 94,
+        "y": 179,
+        "w": 642,
+        "h": 122
+    },
+    {
+        "id": "7f81fc4d1fc00284",
+        "type": "group",
+        "z": "7d41fa9babc2426c",
+        "name": "Sensor #1",
+        "style": {
+            "label": true,
+            "stroke": "#92d04f",
+            "fill": "#c8e7a7",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "f59c1f09c7abbe79",
+            "75096cb3c7f30364",
+            "50a2ede1971ac6a3",
+            "4e04cb4a27638912",
+            "fa140344d0929a20",
+            "0bfb0b708282e855"
+        ],
+        "x": 94,
+        "y": 39,
+        "w": 512,
+        "h": 242
+    },
+    {
+        "id": "5bac0986c3fbe26b",
+        "type": "group",
+        "z": "9aba91fcaaf6a811",
+        "name": "Send state to pump",
+        "style": {
+            "label": true,
+            "stroke": "#92d04f",
+            "fill": "#c8e7a7",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "950c0d3894866c70",
+            "95fc901f221567a8",
+            "ab91f4ec0ab3a4f7"
+        ],
+        "x": 94,
+        "y": 39,
+        "w": 272,
+        "h": 122
+    },
+    {
+        "id": "55629d1329bb3323",
+        "type": "group",
+        "z": "9aba91fcaaf6a811",
+        "name": "Pump #1",
+        "style": {
+            "label": true,
+            "stroke": "#92d04f",
+            "fill": "#c8e7a7",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "3f9806d6f657e3b5",
+            "067045fe33c889ae",
+            "63e107cce65a194e"
+        ],
+        "x": 94,
+        "y": 219,
+        "w": 612,
+        "h": 142
     },
     {
         "id": "0bc3b7ed1f031887",
@@ -159,6 +404,7 @@
     {
         "id": "ab5e3a8a9449da87",
         "type": "ui_group",
+        "z": "7d41fa9babc2426c",
         "name": "Sensor",
         "tab": "fae9317aacbb7477",
         "order": 1,
@@ -170,6 +416,7 @@
     {
         "id": "17059b7a6965c31d",
         "type": "ui_group",
+        "z": "8724a4547da28472",
         "name": "Control",
         "tab": "fae9317aacbb7477",
         "order": 2,
@@ -181,6 +428,7 @@
     {
         "id": "76931fb809943490",
         "type": "ui_group",
+        "z": "9aba91fcaaf6a811",
         "name": "Pump",
         "tab": "fae9317aacbb7477",
         "order": 3,
@@ -192,31 +440,324 @@
     {
         "id": "97491f42da5df10c",
         "type": "mqtt in",
-        "z": "7d41fa9babc2426c",
-        "name": "",
-        "topic": "sensors/+/soil_moisture",
+        "z": "fc276753b96611d0",
+        "name": "Soil moisture",
+        "topic": "",
         "qos": "2",
         "datatype": "auto",
         "broker": "0bc3b7ed1f031887",
         "nl": false,
         "rap": true,
         "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 100,
+        "inputs": 1,
+        "x": 470,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b0a4d22fbfd2566",
+        "type": "mqtt in",
+        "z": "fc276753b96611d0",
+        "name": "Temperature",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0bc3b7ed1f031887",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 470,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af9865a7ef86ebb3",
+        "type": "mqtt in",
+        "z": "fc276753b96611d0",
+        "name": "Humidity",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0bc3b7ed1f031887",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 460,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d16b338bbe38e52c",
+        "type": "change",
+        "z": "fc276753b96611d0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "'sensors/' & $string($env('id')) & '/soil_moisture'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 60,
         "wires": [
             [
-                "3ebbe96ee63ac9c8",
-                "9b4c9f6f6f144483",
-                "94b258f31f0dcf60",
-                "080d73e372a38f84"
+                "97491f42da5df10c"
             ]
         ]
     },
     {
-        "id": "3ebbe96ee63ac9c8",
+        "id": "9e3b6b15281fb223",
+        "type": "change",
+        "z": "fc276753b96611d0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "'sensors/' & $string($env('id')) & '/temperature'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "2b0a4d22fbfd2566"
+            ]
+        ]
+    },
+    {
+        "id": "ee3ae59a47a6c3ce",
+        "type": "change",
+        "z": "fc276753b96611d0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "'sensors/' & $string($env('id')) & '/humidity'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "af9865a7ef86ebb3"
+            ]
+        ]
+    },
+    {
+        "id": "cd04f432190cd4f9",
+        "type": "inject",
+        "z": "fc276753b96611d0",
+        "name": "",
+        "props": [
+            {
+                "p": "action",
+                "v": "subscribe",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "qos",
+                "v": "qos",
+                "vt": "env"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "d16b338bbe38e52c",
+                "9e3b6b15281fb223",
+                "ee3ae59a47a6c3ce"
+            ]
+        ]
+    },
+    {
+        "id": "88057f57f4698a90",
+        "type": "mqtt in",
+        "z": "083a8950d27dee38",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0bc3b7ed1f031887",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "919aa2c72bbc247a"
+            ]
+        ]
+    },
+    {
+        "id": "919aa2c72bbc247a",
+        "type": "change",
+        "z": "083a8950d27dee38",
+        "name": "Change string into number value",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6320289250c95cde",
+        "type": "inject",
+        "z": "083a8950d27dee38",
+        "name": "",
+        "props": [
+            {
+                "p": "action",
+                "v": "subscribe",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "qos",
+                "v": "qos",
+                "vt": "env"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "99bd1130868acef8"
+            ]
+        ]
+    },
+    {
+        "id": "99bd1130868acef8",
+        "type": "change",
+        "z": "083a8950d27dee38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "'pumps/' & $string($env('id')) & '/state'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "88057f57f4698a90"
+            ]
+        ]
+    },
+    {
+        "id": "f59c1f09c7abbe79",
+        "type": "subflow:fc276753b96611d0",
+        "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
+        "name": "",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "fa140344d0929a20",
+                "75096cb3c7f30364",
+                "0bfb0b708282e855"
+            ],
+            [
+                "50a2ede1971ac6a3",
+                "75096cb3c7f30364"
+            ],
+            [
+                "4e04cb4a27638912",
+                "75096cb3c7f30364"
+            ]
+        ]
+    },
+    {
+        "id": "75096cb3c7f30364",
         "type": "ui_chart",
         "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 4,
@@ -251,16 +792,17 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 510,
-        "y": 180,
+        "x": 450,
+        "y": 240,
         "wires": [
             []
         ]
     },
     {
-        "id": "3e9554f6ac1ded38",
+        "id": "50a2ede1971ac6a3",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 2,
@@ -281,59 +823,14 @@
         "seg2": "",
         "className": "",
         "x": 390,
-        "y": 300,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "2b0a4d22fbfd2566",
-        "type": "mqtt in",
-        "z": "7d41fa9babc2426c",
-        "name": "",
-        "topic": "sensors/+/temperature",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "0bc3b7ed1f031887",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 300,
-        "wires": [
-            [
-                "3e9554f6ac1ded38",
-                "3ebbe96ee63ac9c8",
-                "94b258f31f0dcf60"
-            ]
-        ]
-    },
-    {
-        "id": "af9865a7ef86ebb3",
-        "type": "mqtt in",
-        "z": "7d41fa9babc2426c",
-        "name": "",
-        "topic": "sensors/+/humidity",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "0bc3b7ed1f031887",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 400,
-        "wires": [
-            [
-                "b6a3fe9a44a15e63",
-                "3ebbe96ee63ac9c8",
-                "94b258f31f0dcf60"
-            ]
-        ]
-    },
-    {
-        "id": "b6a3fe9a44a15e63",
+        "id": "4e04cb4a27638912",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 3,
@@ -353,55 +850,15 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 360,
-        "y": 400,
+        "x": 380,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "d5ae4abc14ea4cf4",
-        "type": "inject",
-        "z": "7d41fa9babc2426c",
-        "name": "Clear chart",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "[]",
-        "payloadType": "json",
-        "x": 240,
-        "y": 180,
-        "wires": [
-            [
-                "3ebbe96ee63ac9c8"
-            ]
-        ]
-    },
-    {
-        "id": "94b258f31f0dcf60",
-        "type": "debug",
-        "z": "7d41fa9babc2426c",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 130,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "9b4c9f6f6f144483",
+        "id": "fa140344d0929a20",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 1,
@@ -421,20 +878,21 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 370,
+        "x": 390,
         "y": 80,
         "wires": []
     },
     {
-        "id": "080d73e372a38f84",
+        "id": "0bfb0b708282e855",
         "type": "link out",
         "z": "7d41fa9babc2426c",
-        "name": "Moisture data",
+        "g": "7f81fc4d1fc00284",
+        "name": "soil moisture",
         "mode": "link",
         "links": [
             "6eb819947210a780"
         ],
-        "x": 545,
+        "x": 335,
         "y": 120,
         "wires": []
     },
@@ -442,6 +900,7 @@
         "id": "4284465a6bc7b79e",
         "type": "ui_slider",
         "z": "8724a4547da28472",
+        "g": "5ef3f25867c84c30",
         "name": "",
         "label": "Moisture threshold (in %)",
         "tooltip": "",
@@ -457,8 +916,8 @@
         "max": "100",
         "step": 1,
         "className": "",
-        "x": 170,
-        "y": 40,
+        "x": 230,
+        "y": 80,
         "wires": [
             [
                 "d70bba95a0e931b9"
@@ -469,6 +928,7 @@
         "id": "d70bba95a0e931b9",
         "type": "change",
         "z": "8724a4547da28472",
+        "g": "5ef3f25867c84c30",
         "name": "",
         "rules": [
             {
@@ -484,40 +944,23 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 40,
+        "x": 510,
+        "y": 80,
         "wires": [
-            [
-                "d6a6c5e53dcf55a3"
-            ]
+            []
         ]
-    },
-    {
-        "id": "d6a6c5e53dcf55a3",
-        "type": "debug",
-        "z": "8724a4547da28472",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "6eb819947210a780",
         "type": "link in",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "Moisture data",
         "links": [
-            "080d73e372a38f84"
+            "0bfb0b708282e855"
         ],
-        "x": 65,
-        "y": 120,
+        "x": 135,
+        "y": 240,
         "wires": [
             [
                 "6b0531c3a695f0f2"
@@ -528,6 +971,7 @@
         "id": "779af778951262f2",
         "type": "switch",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -546,8 +990,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 310,
-        "y": 120,
+        "x": 400,
+        "y": 240,
         "wires": [
             [
                 "a635d62cdecc63bc"
@@ -561,6 +1005,7 @@
         "id": "a635d62cdecc63bc",
         "type": "change",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "",
         "rules": [
             {
@@ -576,11 +1021,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 100,
+        "x": 560,
+        "y": 220,
         "wires": [
             [
-                "c68d23d4896df169",
                 "0fb850b5d35f2f00"
             ]
         ]
@@ -589,6 +1033,7 @@
         "id": "bbff58125f4bc761",
         "type": "change",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "",
         "rules": [
             {
@@ -604,77 +1049,47 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 140,
+        "x": 560,
+        "y": 260,
         "wires": [
             [
-                "3de87fc43580983c",
                 "393ebd3b41b28f82"
             ]
         ]
     },
     {
-        "id": "c68d23d4896df169",
-        "type": "debug",
-        "z": "8724a4547da28472",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "3de87fc43580983c",
-        "type": "debug",
-        "z": "8724a4547da28472",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 690,
-        "y": 200,
-        "wires": []
-    },
-    {
         "id": "0fb850b5d35f2f00",
         "type": "link out",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "Pump ON",
         "mode": "link",
         "links": [
             "95fc901f221567a8"
         ],
-        "x": 655,
-        "y": 120,
+        "x": 695,
+        "y": 220,
         "wires": []
     },
     {
         "id": "393ebd3b41b28f82",
         "type": "link out",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "Pump OFF",
         "mode": "link",
         "links": [
             "ab91f4ec0ab3a4f7"
         ],
-        "x": 655,
-        "y": 160,
+        "x": 695,
+        "y": 260,
         "wires": []
     },
     {
         "id": "6b0531c3a695f0f2",
         "type": "change",
         "z": "8724a4547da28472",
+        "g": "61a51d061c408148",
         "name": "",
         "rules": [
             {
@@ -690,8 +1105,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 170,
-        "y": 120,
+        "x": 250,
+        "y": 240,
         "wires": [
             [
                 "779af778951262f2"
@@ -699,68 +1114,11 @@
         ]
     },
     {
-        "id": "3018eaff94a85d0b",
-        "type": "inject",
-        "z": "9aba91fcaaf6a811",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "pumps/1/state",
-        "payload": "ON",
-        "payloadType": "str",
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "950c0d3894866c70"
-            ]
-        ]
-    },
-    {
-        "id": "7937287c2767bfed",
-        "type": "inject",
-        "z": "9aba91fcaaf6a811",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "pumps/1/state",
-        "payload": "OFF",
-        "payloadType": "str",
-        "x": 150,
-        "y": 140,
-        "wires": [
-            [
-                "950c0d3894866c70"
-            ]
-        ]
-    },
-    {
         "id": "950c0d3894866c70",
         "type": "mqtt out",
         "z": "9aba91fcaaf6a811",
-        "name": "",
+        "g": "5bac0986c3fbe26b",
+        "name": "pump",
         "topic": "",
         "qos": "2",
         "retain": "false",
@@ -770,59 +1128,39 @@
         "correl": "",
         "expiry": "",
         "broker": "0bc3b7ed1f031887",
-        "x": 350,
-        "y": 160,
+        "x": 290,
+        "y": 100,
         "wires": []
     },
     {
         "id": "3f9806d6f657e3b5",
         "type": "ui_text",
         "z": "9aba91fcaaf6a811",
+        "g": "55629d1329bb3323",
         "group": "76931fb809943490",
         "order": 1,
         "width": 0,
         "height": 0,
-        "name": "",
+        "name": "Pump state",
         "label": "Pump: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "className": "",
-        "x": 330,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "88057f57f4698a90",
-        "type": "mqtt in",
-        "z": "9aba91fcaaf6a811",
-        "name": "",
-        "topic": "pumps/1/state",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "0bc3b7ed1f031887",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
+        "x": 550,
         "y": 260,
-        "wires": [
-            [
-                "3f9806d6f657e3b5",
-                "919aa2c72bbc247a"
-            ]
-        ]
+        "wires": []
     },
     {
         "id": "95fc901f221567a8",
         "type": "link in",
         "z": "9aba91fcaaf6a811",
+        "g": "5bac0986c3fbe26b",
         "name": "Pump ON",
         "links": [
             "0fb850b5d35f2f00"
         ],
-        "x": 215,
-        "y": 180,
+        "x": 135,
+        "y": 80,
         "wires": [
             [
                 "950c0d3894866c70"
@@ -833,12 +1171,13 @@
         "id": "ab91f4ec0ab3a4f7",
         "type": "link in",
         "z": "9aba91fcaaf6a811",
+        "g": "5bac0986c3fbe26b",
         "name": "Pump OFF",
         "links": [
             "393ebd3b41b28f82"
         ],
-        "x": 215,
-        "y": 220,
+        "x": 135,
+        "y": 120,
         "wires": [
             [
                 "950c0d3894866c70"
@@ -849,6 +1188,7 @@
         "id": "067045fe33c889ae",
         "type": "ui_chart",
         "z": "9aba91fcaaf6a811",
+        "g": "55629d1329bb3323",
         "name": "",
         "group": "76931fb809943490",
         "order": 2,
@@ -883,45 +1223,24 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 520,
+        "x": 560,
         "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "919aa2c72bbc247a",
-        "type": "change",
+        "id": "63e107cce65a194e",
+        "type": "subflow:083a8950d27dee38",
         "z": "9aba91fcaaf6a811",
+        "g": "55629d1329bb3323",
         "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "1",
-                "tot": "num"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 320,
+        "x": 170,
+        "y": 280,
         "wires": [
+            [
+                "3f9806d6f657e3b5"
+            ],
             [
                 "067045fe33c889ae"
             ]
