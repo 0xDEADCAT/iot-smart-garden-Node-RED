@@ -168,7 +168,7 @@
             "4284465a6bc7b79e",
             "d70bba95a0e931b9"
         ],
-        "x": 94,
+        "x": 474,
         "y": 39,
         "w": 532,
         "h": 82
@@ -213,16 +213,14 @@
         },
         "nodes": [
             "f59c1f09c7abbe79",
-            "75096cb3c7f30364",
-            "50a2ede1971ac6a3",
-            "4e04cb4a27638912",
-            "fa140344d0929a20",
-            "0bfb0b708282e855"
+            "0bfb0b708282e855",
+            "73ee91f11bed6d15",
+            "906dbb112a719f32"
         ],
         "x": 94,
-        "y": 39,
-        "w": 512,
-        "h": 242
+        "y": 79,
+        "w": 282,
+        "h": 162
     },
     {
         "id": "5bac0986c3fbe26b",
@@ -250,7 +248,7 @@
         "id": "55629d1329bb3323",
         "type": "group",
         "z": "9aba91fcaaf6a811",
-        "name": "Pump #1",
+        "name": "Pump #1 dashboard",
         "style": {
             "label": true,
             "stroke": "#92d04f",
@@ -267,6 +265,60 @@
         "y": 219,
         "w": 612,
         "h": 142
+    },
+    {
+        "id": "51d23b0249af6f92",
+        "type": "group",
+        "z": "7d41fa9babc2426c",
+        "name": "Sensor #1 dashboard",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "label": true,
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "75096cb3c7f30364",
+            "50a2ede1971ac6a3",
+            "4e04cb4a27638912",
+            "fa140344d0929a20",
+            "bea2c7f6198083e6",
+            "9820738e089d4683",
+            "9460a7a9e61f0cc9",
+            "779b1db208e52ef7"
+        ],
+        "x": 454,
+        "y": 79,
+        "w": 512,
+        "h": 222
+    },
+    {
+        "id": "a4983f50e8ca1c89",
+        "type": "group",
+        "z": "7d41fa9babc2426c",
+        "name": "Sensor #1 save to CSV",
+        "style": {
+            "label": true,
+            "stroke": "#ffC000",
+            "fill": "#ffefbf",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "08c382de1b3708d8",
+            "198889489534f8fe",
+            "fc84510af0f97744",
+            "2dae635ae377372d",
+            "31a606c4d2d95212",
+            "65ab89d79d9135cc",
+            "5a1e6aa8b26197dc",
+            "57c0b176eee11ca5"
+        ],
+        "x": 74,
+        "y": 339,
+        "w": 792,
+        "h": 202
     },
     {
         "id": "0bc3b7ed1f031887",
@@ -739,17 +791,13 @@
         "y": 160,
         "wires": [
             [
-                "fa140344d0929a20",
-                "75096cb3c7f30364",
                 "0bfb0b708282e855"
             ],
             [
-                "50a2ede1971ac6a3",
-                "75096cb3c7f30364"
+                "73ee91f11bed6d15"
             ],
             [
-                "4e04cb4a27638912",
-                "75096cb3c7f30364"
+                "906dbb112a719f32"
             ]
         ]
     },
@@ -757,24 +805,24 @@
         "id": "75096cb3c7f30364",
         "type": "ui_chart",
         "z": "7d41fa9babc2426c",
-        "g": "7f81fc4d1fc00284",
+        "g": "51d23b0249af6f92",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 4,
         "width": 0,
         "height": 0,
-        "label": "History of measurements (1 day)",
+        "label": "History of measurements (1 hour)",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
-        "nodata": "No soil moisture data available",
+        "nodata": "No sensor data available",
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "1",
         "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
+        "removeOlderUnit": "3600",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -792,8 +840,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 450,
-        "y": 240,
+        "x": 800,
+        "y": 260,
         "wires": [
             []
         ]
@@ -802,7 +850,7 @@
         "id": "50a2ede1971ac6a3",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
-        "g": "7f81fc4d1fc00284",
+        "g": "51d23b0249af6f92",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 2,
@@ -822,7 +870,7 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 390,
+        "x": 730,
         "y": 160,
         "wires": []
     },
@@ -830,7 +878,7 @@
         "id": "4e04cb4a27638912",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
-        "g": "7f81fc4d1fc00284",
+        "g": "51d23b0249af6f92",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 3,
@@ -850,7 +898,7 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 380,
+        "x": 720,
         "y": 200,
         "wires": []
     },
@@ -858,7 +906,7 @@
         "id": "fa140344d0929a20",
         "type": "ui_gauge",
         "z": "7d41fa9babc2426c",
-        "g": "7f81fc4d1fc00284",
+        "g": "51d23b0249af6f92",
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 1,
@@ -871,15 +919,15 @@
         "min": 0,
         "max": "100",
         "colors": [
-            "#00b500",
+            "#c41b1b",
             "#e6e600",
-            "#ca3838"
+            "#00b000"
         ],
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 390,
-        "y": 80,
+        "x": 730,
+        "y": 120,
         "wires": []
     },
     {
@@ -887,14 +935,315 @@
         "type": "link out",
         "z": "7d41fa9babc2426c",
         "g": "7f81fc4d1fc00284",
-        "name": "soil moisture",
+        "name": "soil moisture provider",
         "mode": "link",
         "links": [
-            "6eb819947210a780"
+            "6eb819947210a780",
+            "9820738e089d4683",
+            "198889489534f8fe"
         ],
         "x": 335,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "bea2c7f6198083e6",
+        "type": "inject",
+        "z": "7d41fa9babc2426c",
+        "g": "51d23b0249af6f92",
+        "name": "Clear chart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "75096cb3c7f30364"
+            ]
+        ]
+    },
+    {
+        "id": "08c382de1b3708d8",
+        "type": "join",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 420,
+        "wires": [
+            [
+                "31a606c4d2d95212"
+            ]
+        ]
+    },
+    {
+        "id": "9820738e089d4683",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "51d23b0249af6f92",
+        "name": "soil moisture receiver",
+        "links": [
+            "0bfb0b708282e855"
+        ],
+        "x": 535,
+        "y": 120,
+        "wires": [
+            [
+                "fa140344d0929a20",
+                "75096cb3c7f30364"
+            ]
+        ]
+    },
+    {
+        "id": "9460a7a9e61f0cc9",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "51d23b0249af6f92",
+        "name": "temperature receiver",
+        "links": [
+            "73ee91f11bed6d15"
+        ],
+        "x": 535,
+        "y": 160,
+        "wires": [
+            [
+                "50a2ede1971ac6a3",
+                "75096cb3c7f30364"
+            ]
+        ]
+    },
+    {
+        "id": "779b1db208e52ef7",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "51d23b0249af6f92",
+        "name": "humidity receiver",
+        "links": [
+            "906dbb112a719f32"
+        ],
+        "x": 535,
+        "y": 200,
+        "wires": [
+            [
+                "4e04cb4a27638912",
+                "75096cb3c7f30364"
+            ]
+        ]
+    },
+    {
+        "id": "73ee91f11bed6d15",
+        "type": "link out",
+        "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
+        "name": "temperature provider",
+        "mode": "link",
+        "links": [
+            "9460a7a9e61f0cc9",
+            "fc84510af0f97744"
+        ],
+        "x": 335,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "906dbb112a719f32",
+        "type": "link out",
+        "z": "7d41fa9babc2426c",
+        "g": "7f81fc4d1fc00284",
+        "name": "humidity provider",
+        "mode": "link",
+        "links": [
+            "779b1db208e52ef7",
+            "2dae635ae377372d"
+        ],
+        "x": 335,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "198889489534f8fe",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "links": [
+            "0bfb0b708282e855"
+        ],
+        "x": 115,
+        "y": 380,
+        "wires": [
+            [
+                "5a1e6aa8b26197dc",
+                "57c0b176eee11ca5"
+            ]
+        ]
+    },
+    {
+        "id": "fc84510af0f97744",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "links": [
+            "73ee91f11bed6d15"
+        ],
+        "x": 115,
+        "y": 420,
+        "wires": [
+            [
+                "5a1e6aa8b26197dc"
+            ]
+        ]
+    },
+    {
+        "id": "2dae635ae377372d",
+        "type": "link in",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "links": [
+            "906dbb112a719f32"
+        ],
+        "x": 115,
+        "y": 460,
+        "wires": [
+            [
+                "5a1e6aa8b26197dc"
+            ]
+        ]
+    },
+    {
+        "id": "31a606c4d2d95212",
+        "type": "csv",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,soil_moisture,temperature,humidity",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "65ab89d79d9135cc"
+            ]
+        ]
+    },
+    {
+        "id": "65ab89d79d9135cc",
+        "type": "file",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "filename": "/home/pi/sensor_data.csv",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 730,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a1e6aa8b26197dc",
+        "type": "change",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "$match(topic,/(?<=sensors\\/[0-9]+\\/)([a-z]|_)+/,1).match",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 420,
+        "wires": [
+            [
+                "08c382de1b3708d8"
+            ]
+        ]
+    },
+    {
+        "id": "57c0b176eee11ca5",
+        "type": "change",
+        "z": "7d41fa9babc2426c",
+        "g": "a4983f50e8ca1c89",
+        "name": "Generate timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$now()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "timestamp",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "08c382de1b3708d8"
+            ]
+        ]
     },
     {
         "id": "4284465a6bc7b79e",
@@ -916,7 +1265,7 @@
         "max": "100",
         "step": 1,
         "className": "",
-        "x": 230,
+        "x": 610,
         "y": 80,
         "wires": [
             [
@@ -944,7 +1293,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
+        "x": 890,
         "y": 80,
         "wires": [
             []
@@ -1110,6 +1459,31 @@
         "wires": [
             [
                 "779af778951262f2"
+            ]
+        ]
+    },
+    {
+        "id": "a87a5b842b81d57e",
+        "type": "inject",
+        "z": "8724a4547da28472",
+        "name": "Inject moisture threshold in case of restart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "moisture",
+        "payloadType": "flow",
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "4284465a6bc7b79e"
             ]
         ]
     },
