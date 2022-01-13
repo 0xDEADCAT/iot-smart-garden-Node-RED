@@ -174,32 +174,6 @@
         "h": 82
     },
     {
-        "id": "61a51d061c408148",
-        "type": "group",
-        "z": "8724a4547da28472",
-        "name": "Check moisture threshold and branch depending on value",
-        "style": {
-            "stroke": "#0070c0",
-            "fill": "#bfdbef",
-            "label": true,
-            "label-position": "n",
-            "color": "#777777"
-        },
-        "nodes": [
-            "6eb819947210a780",
-            "779af778951262f2",
-            "a635d62cdecc63bc",
-            "bbff58125f4bc761",
-            "0fb850b5d35f2f00",
-            "393ebd3b41b28f82",
-            "6b0531c3a695f0f2"
-        ],
-        "x": 94,
-        "y": 179,
-        "w": 642,
-        "h": 122
-    },
-    {
         "id": "7f81fc4d1fc00284",
         "type": "group",
         "z": "7d41fa9babc2426c",
@@ -236,13 +210,12 @@
         },
         "nodes": [
             "950c0d3894866c70",
-            "95fc901f221567a8",
-            "ab91f4ec0ab3a4f7"
+            "95fc901f221567a8"
         ],
         "x": 94,
-        "y": 39,
+        "y": 59,
         "w": 272,
-        "h": 122
+        "h": 82
     },
     {
         "id": "55629d1329bb3323",
@@ -263,7 +236,7 @@
         ],
         "x": 94,
         "y": 219,
-        "w": 612,
+        "w": 632,
         "h": 142
     },
     {
@@ -319,6 +292,32 @@
         "y": 339,
         "w": 792,
         "h": 202
+    },
+    {
+        "id": "61a51d061c408148",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "name": "Check moisture threshold and branch depending on value",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "label": true,
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "6eb819947210a780",
+            "779af778951262f2",
+            "a635d62cdecc63bc",
+            "bbff58125f4bc761",
+            "0fb850b5d35f2f00",
+            "6b0531c3a695f0f2",
+            "f2e8265650dda5dd"
+        ],
+        "x": 94,
+        "y": 179,
+        "w": 882,
+        "h": 122
     },
     {
         "id": "0bc3b7ed1f031887",
@@ -461,7 +460,7 @@
         "tab": "fae9317aacbb7477",
         "order": 1,
         "disp": true,
-        "width": "8",
+        "width": "6",
         "collapse": false,
         "className": ""
     },
@@ -854,8 +853,8 @@
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 2,
-        "width": 4,
-        "height": 5,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "Temperature",
         "label": "°C",
@@ -882,8 +881,8 @@
         "name": "",
         "group": "ab5e3a8a9449da87",
         "order": 3,
-        "width": 4,
-        "height": 5,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "Humidity",
         "label": "%RH",
@@ -1300,6 +1299,170 @@
         ]
     },
     {
+        "id": "a87a5b842b81d57e",
+        "type": "inject",
+        "z": "8724a4547da28472",
+        "name": "Inject moisture threshold in case of restart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "moisture",
+        "payloadType": "flow",
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "4284465a6bc7b79e"
+            ]
+        ]
+    },
+    {
+        "id": "2492389d804e5765",
+        "type": "ui_switch",
+        "z": "8724a4547da28472",
+        "name": "",
+        "label": "Manual mode",
+        "tooltip": "",
+        "group": "17059b7a6965c31d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "ecbe00eaf6ec07e0"
+            ]
+        ]
+    },
+    {
+        "id": "5fe67deeed710cfd",
+        "type": "ui_button",
+        "z": "8724a4547da28472",
+        "name": "",
+        "group": "17059b7a6965c31d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Activate pump",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "pumps/1/activate",
+        "topicType": "str",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "c3e0e18bc4c3faab"
+            ]
+        ]
+    },
+    {
+        "id": "ecbe00eaf6ec07e0",
+        "type": "change",
+        "z": "8724a4547da28472",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "manual",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb9d89c21fe3fe70",
+        "type": "inject",
+        "z": "8724a4547da28472",
+        "name": "Inject manual mode in case of restart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "manual",
+        "payloadType": "flow",
+        "x": 210,
+        "y": 400,
+        "wires": [
+            [
+                "2492389d804e5765"
+            ]
+        ]
+    },
+    {
+        "id": "c3e0e18bc4c3faab",
+        "type": "switch",
+        "z": "8724a4547da28472",
+        "name": "manual mode check",
+        "property": "manual",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 520,
+        "wires": [
+            [
+                "7760aec39d7cbe6c"
+            ]
+        ]
+    },
+    {
         "id": "6eb819947210a780",
         "type": "link in",
         "z": "8724a4547da28472",
@@ -1312,7 +1475,7 @@
         "y": 240,
         "wires": [
             [
-                "6b0531c3a695f0f2"
+                "f2e8265650dda5dd"
             ]
         ]
     },
@@ -1339,7 +1502,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 400,
+        "x": 640,
         "y": 240,
         "wires": [
             [
@@ -1361,8 +1524,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "ON",
-                "tot": "str"
+                "to": "true",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -1370,7 +1533,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
+        "x": 800,
         "y": 220,
         "wires": [
             [
@@ -1389,8 +1552,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "OFF",
-                "tot": "str"
+                "to": "false",
+                "tot": "bool"
             }
         ],
         "action": "",
@@ -1398,11 +1561,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
+        "x": 800,
         "y": 260,
         "wires": [
             [
-                "393ebd3b41b28f82"
+                "0fb850b5d35f2f00"
             ]
         ]
     },
@@ -1416,22 +1579,8 @@
         "links": [
             "95fc901f221567a8"
         ],
-        "x": 695,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "393ebd3b41b28f82",
-        "type": "link out",
-        "z": "8724a4547da28472",
-        "g": "61a51d061c408148",
-        "name": "Pump OFF",
-        "mode": "link",
-        "links": [
-            "ab91f4ec0ab3a4f7"
-        ],
-        "x": 695,
-        "y": 260,
+        "x": 935,
+        "y": 240,
         "wires": []
     },
     {
@@ -1445,7 +1594,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "'pumps/' & $match(topic,/[0-9]+/,1).match & '/state'",
+                "to": "'pumps/' & $match(topic,/[0-9]+/,1).match & '/activate'",
                 "tot": "jsonata"
             }
         ],
@@ -1454,7 +1603,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 250,
+        "x": 490,
         "y": 240,
         "wires": [
             [
@@ -1463,29 +1612,41 @@
         ]
     },
     {
-        "id": "a87a5b842b81d57e",
-        "type": "inject",
+        "id": "f2e8265650dda5dd",
+        "type": "switch",
         "z": "8724a4547da28472",
-        "name": "Inject moisture threshold in case of restart",
-        "props": [
+        "g": "61a51d061c408148",
+        "name": "manual mode check",
+        "property": "manual",
+        "propertyType": "flow",
+        "rules": [
             {
-                "p": "payload"
+                "t": "false"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "moisture",
-        "payloadType": "flow",
-        "x": 280,
-        "y": 80,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 240,
         "wires": [
             [
-                "4284465a6bc7b79e"
+                "6b0531c3a695f0f2"
             ]
         ]
+    },
+    {
+        "id": "7760aec39d7cbe6c",
+        "type": "link out",
+        "z": "8724a4547da28472",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "95fc901f221567a8"
+        ],
+        "x": 525,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "950c0d3894866c70",
@@ -1531,27 +1692,11 @@
         "g": "5bac0986c3fbe26b",
         "name": "Pump ON",
         "links": [
-            "0fb850b5d35f2f00"
+            "0fb850b5d35f2f00",
+            "7760aec39d7cbe6c"
         ],
         "x": 135,
-        "y": 80,
-        "wires": [
-            [
-                "950c0d3894866c70"
-            ]
-        ]
-    },
-    {
-        "id": "ab91f4ec0ab3a4f7",
-        "type": "link in",
-        "z": "9aba91fcaaf6a811",
-        "g": "5bac0986c3fbe26b",
-        "name": "Pump OFF",
-        "links": [
-            "393ebd3b41b28f82"
-        ],
-        "x": 135,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "950c0d3894866c70"
@@ -1568,7 +1713,7 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "label": "History of pump state (1 day)",
+        "label": "History of pump state (10 mins)",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -1577,9 +1722,9 @@
         "dot": false,
         "ymin": "0",
         "ymax": "1",
-        "removeOlder": 1,
+        "removeOlder": "10",
         "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
+        "removeOlderUnit": "60",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -1597,7 +1742,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 560,
+        "x": 570,
         "y": 320,
         "wires": [
             []
