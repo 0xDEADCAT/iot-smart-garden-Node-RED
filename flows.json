@@ -156,6 +156,7 @@
         "id": "5ef3f25867c84c30",
         "type": "group",
         "z": "8724a4547da28472",
+        "g": "22c7734a6291556b",
         "name": "Set moisture threshold",
         "style": {
             "label": true,
@@ -166,11 +167,12 @@
         },
         "nodes": [
             "4284465a6bc7b79e",
-            "d70bba95a0e931b9"
+            "d70bba95a0e931b9",
+            "a87a5b842b81d57e"
         ],
-        "x": 474,
-        "y": 39,
-        "w": 532,
+        "x": 114,
+        "y": 99,
+        "w": 872,
         "h": 82
     },
     {
@@ -297,7 +299,8 @@
         "id": "61a51d061c408148",
         "type": "group",
         "z": "8724a4547da28472",
-        "name": "Check moisture threshold and branch depending on value",
+        "g": "22c7734a6291556b",
+        "name": "Check incoming moisture value against the threshold and decide if activation is needed",
         "style": {
             "stroke": "#0070c0",
             "fill": "#bfdbef",
@@ -314,10 +317,121 @@
             "6b0531c3a695f0f2",
             "f2e8265650dda5dd"
         ],
-        "x": 94,
-        "y": 179,
+        "x": 114,
+        "y": 199,
         "w": 882,
         "h": 122
+    },
+    {
+        "id": "0ab51792f3b785c8",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "g": "22c7734a6291556b",
+        "name": "Set manual mode",
+        "style": {
+            "label": true,
+            "stroke": "#ffC000",
+            "fill": "#ffdf7f",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "2492389d804e5765",
+            "ecbe00eaf6ec07e0",
+            "bb9d89c21fe3fe70"
+        ],
+        "x": 194,
+        "y": 339,
+        "w": 772,
+        "h": 82
+    },
+    {
+        "id": "73e821680b12723f",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "g": "7169833dcb38a2fe",
+        "name": "Set sleep time",
+        "style": {
+            "label": true,
+            "stroke": "#92d04f",
+            "fill": "#c8e7a7",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "4010011cec644a79",
+            "94037f41b422ba37",
+            "14632ebbe77b023b",
+            "d8f862d9cfb1b4d6",
+            "240f767624573de5",
+            "1de17d619634bf17",
+            "f099f20af0950f46",
+            "6488a9e94b12ade0"
+        ],
+        "x": 54,
+        "y": 639,
+        "w": 1232,
+        "h": 122
+    },
+    {
+        "id": "b69c3816afea4f47",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "g": "22c7734a6291556b",
+        "name": "Activate pump (if in manual mode)",
+        "style": {
+            "label": true,
+            "stroke": "#ffC000",
+            "fill": "#ffdf7f",
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "5fe67deeed710cfd",
+            "c3e0e18bc4c3faab",
+            "7760aec39d7cbe6c"
+        ],
+        "x": 274,
+        "y": 439,
+        "w": 512,
+        "h": 82
+    },
+    {
+        "id": "7169833dcb38a2fe",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "70fbcd52049c39e1",
+            "73e821680b12723f"
+        ],
+        "x": 28,
+        "y": 559,
+        "w": 1284,
+        "h": 228
+    },
+    {
+        "id": "22c7734a6291556b",
+        "type": "group",
+        "z": "8724a4547da28472",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "df0e64de54058ff6",
+            "5ef3f25867c84c30",
+            "61a51d061c408148",
+            "0ab51792f3b785c8",
+            "b69c3816afea4f47"
+        ],
+        "x": 88,
+        "y": 19,
+        "w": 934,
+        "h": 528
     },
     {
         "id": "0bc3b7ed1f031887",
@@ -1253,7 +1367,7 @@
         "label": "Moisture threshold (in %)",
         "tooltip": "",
         "group": "17059b7a6965c31d",
-        "order": 1,
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1265,7 +1379,7 @@
         "step": 1,
         "className": "",
         "x": 610,
-        "y": 80,
+        "y": 140,
         "wires": [
             [
                 "d70bba95a0e931b9"
@@ -1292,8 +1406,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
-        "y": 80,
+        "x": 870,
+        "y": 140,
         "wires": [
             []
         ]
@@ -1302,6 +1416,7 @@
         "id": "a87a5b842b81d57e",
         "type": "inject",
         "z": "8724a4547da28472",
+        "g": "5ef3f25867c84c30",
         "name": "Inject moisture threshold in case of restart",
         "props": [
             {
@@ -1315,8 +1430,8 @@
         "topic": "",
         "payload": "moisture",
         "payloadType": "flow",
-        "x": 280,
-        "y": 80,
+        "x": 320,
+        "y": 140,
         "wires": [
             [
                 "4284465a6bc7b79e"
@@ -1327,11 +1442,12 @@
         "id": "2492389d804e5765",
         "type": "ui_switch",
         "z": "8724a4547da28472",
+        "g": "0ab51792f3b785c8",
         "name": "",
         "label": "Manual mode",
         "tooltip": "",
         "group": "17059b7a6965c31d",
-        "order": 2,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -1349,8 +1465,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 480,
-        "y": 400,
+        "x": 660,
+        "y": 380,
         "wires": [
             [
                 "ecbe00eaf6ec07e0"
@@ -1361,9 +1477,10 @@
         "id": "5fe67deeed710cfd",
         "type": "ui_button",
         "z": "8724a4547da28472",
+        "g": "b69c3816afea4f47",
         "name": "",
         "group": "17059b7a6965c31d",
-        "order": 2,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1377,8 +1494,8 @@
         "payloadType": "bool",
         "topic": "pumps/1/activate",
         "topicType": "str",
-        "x": 160,
-        "y": 520,
+        "x": 380,
+        "y": 480,
         "wires": [
             [
                 "c3e0e18bc4c3faab"
@@ -1389,6 +1506,7 @@
         "id": "ecbe00eaf6ec07e0",
         "type": "change",
         "z": "8724a4547da28472",
+        "g": "0ab51792f3b785c8",
         "name": "",
         "rules": [
             {
@@ -1404,8 +1522,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
-        "y": 400,
+        "x": 860,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1414,6 +1532,7 @@
         "id": "bb9d89c21fe3fe70",
         "type": "inject",
         "z": "8724a4547da28472",
+        "g": "0ab51792f3b785c8",
         "name": "Inject manual mode in case of restart",
         "props": [
             {
@@ -1431,8 +1550,8 @@
         "topic": "",
         "payload": "manual",
         "payloadType": "flow",
-        "x": 210,
-        "y": 400,
+        "x": 390,
+        "y": 380,
         "wires": [
             [
                 "2492389d804e5765"
@@ -1443,6 +1562,7 @@
         "id": "c3e0e18bc4c3faab",
         "type": "switch",
         "z": "8724a4547da28472",
+        "g": "b69c3816afea4f47",
         "name": "manual mode check",
         "property": "manual",
         "propertyType": "flow",
@@ -1454,8 +1574,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 370,
-        "y": 520,
+        "x": 590,
+        "y": 480,
         "wires": [
             [
                 "7760aec39d7cbe6c"
@@ -1471,8 +1591,8 @@
         "links": [
             "0bfb0b708282e855"
         ],
-        "x": 135,
-        "y": 240,
+        "x": 155,
+        "y": 260,
         "wires": [
             [
                 "f2e8265650dda5dd"
@@ -1502,8 +1622,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 640,
-        "y": 240,
+        "x": 660,
+        "y": 260,
         "wires": [
             [
                 "a635d62cdecc63bc"
@@ -1533,8 +1653,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 220,
+        "x": 820,
+        "y": 240,
         "wires": [
             [
                 "0fb850b5d35f2f00"
@@ -1561,8 +1681,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 260,
+        "x": 820,
+        "y": 280,
         "wires": [
             [
                 "0fb850b5d35f2f00"
@@ -1579,8 +1699,8 @@
         "links": [
             "95fc901f221567a8"
         ],
-        "x": 935,
-        "y": 240,
+        "x": 955,
+        "y": 260,
         "wires": []
     },
     {
@@ -1603,8 +1723,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
-        "y": 240,
+        "x": 510,
+        "y": 260,
         "wires": [
             [
                 "779af778951262f2"
@@ -1627,8 +1747,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 290,
-        "y": 240,
+        "x": 310,
+        "y": 260,
         "wires": [
             [
                 "6b0531c3a695f0f2"
@@ -1639,13 +1759,256 @@
         "id": "7760aec39d7cbe6c",
         "type": "link out",
         "z": "8724a4547da28472",
+        "g": "b69c3816afea4f47",
         "name": "",
         "mode": "link",
         "links": [
             "95fc901f221567a8"
         ],
-        "x": 525,
-        "y": 520,
+        "x": 745,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "df0e64de54058ff6",
+        "type": "ui_text",
+        "z": "8724a4547da28472",
+        "g": "22c7734a6291556b",
+        "group": "17059b7a6965c31d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Pump",
+        "label": "",
+        "format": "Pump",
+        "layout": "col-center",
+        "className": "",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "70fbcd52049c39e1",
+        "type": "ui_text",
+        "z": "8724a4547da28472",
+        "g": "7169833dcb38a2fe",
+        "group": "17059b7a6965c31d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Sensor",
+        "label": "",
+        "format": "Sensor",
+        "layout": "col-center",
+        "className": "",
+        "x": 660,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "4010011cec644a79",
+        "type": "ui_text_input",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "label": "Sleep time (seconds)",
+        "tooltip": "Sensor sleep time in seconds",
+        "group": "17059b7a6965c31d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 180,
+        "y": 700,
+        "wires": [
+            [
+                "94037f41b422ba37"
+            ]
+        ]
+    },
+    {
+        "id": "94037f41b422ba37",
+        "type": "switch",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 700,
+        "wires": [
+            [
+                "240f767624573de5"
+            ],
+            [
+                "d8f862d9cfb1b4d6"
+            ]
+        ]
+    },
+    {
+        "id": "14632ebbe77b023b",
+        "type": "ui_toast",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "Yes",
+        "cancel": "Cancel",
+        "raw": false,
+        "className": "",
+        "topic": "Do you want to set sensor sleep time?",
+        "name": "",
+        "x": 670,
+        "y": 680,
+        "wires": [
+            [
+                "1de17d619634bf17"
+            ]
+        ]
+    },
+    {
+        "id": "d8f862d9cfb1b4d6",
+        "type": "ui_toast",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": false,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Incorrect sensor sleep time value provided",
+        "name": "",
+        "x": 510,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "240f767624573de5",
+        "type": "change",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 680,
+        "wires": [
+            [
+                "14632ebbe77b023b"
+            ]
+        ]
+    },
+    {
+        "id": "1de17d619634bf17",
+        "type": "switch",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Yes",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 680,
+        "wires": [
+            [
+                "f099f20af0950f46"
+            ]
+        ]
+    },
+    {
+        "id": "f099f20af0950f46",
+        "type": "change",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 680,
+        "wires": [
+            [
+                "6488a9e94b12ade0"
+            ]
+        ]
+    },
+    {
+        "id": "6488a9e94b12ade0",
+        "type": "mqtt out",
+        "z": "8724a4547da28472",
+        "g": "73e821680b12723f",
+        "name": "",
+        "topic": "sensors/1/sleep_time",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0bc3b7ed1f031887",
+        "x": 1160,
+        "y": 680,
         "wires": []
     },
     {
